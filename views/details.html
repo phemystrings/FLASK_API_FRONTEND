@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <main>
+        <article>
+            <div class='table-header'>
+                <h2>Details Page</h2>
+                <a href='/views/index.html'>Back to Table</a>
+            </div>
+            <ul></ul>
+            <section class='details'></section>
+        </article>
+    </main>
+
+    <script type="module">
+        import {get_One} from '../api/formHandler.js'
+        const response = get_One(
+            location.search.replace('?', ''), 
+            document.querySelector('ul')
+        ) 
+        </script>
+</body>
+</html>

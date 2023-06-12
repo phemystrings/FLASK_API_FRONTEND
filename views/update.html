@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <main>
+        <div class='table-header'>
+            <h2>Update</h2>
+            <a href='/views/index.html'>Back to Table</a>
+        </div>
+        <form method='put'>           
+            <h2>Update Form</h2>
+            <p>Kindly update your details below.</p>
+          <input type="text" placeholder="First Name" name="firstname" title="firstname" />
+          <input type="text" placeholder="Last Name" name="lastname" title="lastname" />
+          <input type="email" placeholder="E-Mail" name="email" title="email" />
+          <input type="text" placeholder="Profession" name="profession" title="profession" />
+          <button type="submit">Update</button>
+        </form>
+    </main>
+    <script type="module">
+        import {get_One, update} from '../api/formHandler.js'
+        const form = document.querySelector('form')
+        get_One(location.search.replace('?', '')).then(res=> {
+            form.querySelectorAll('input').forEach(a=> a.value = res[a.name])
+        })
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault()
+            update(location.search.replace('?', ''), Object.fromEntries(new FormData(form)))
+        }) 
+    </script>
+</body>
+</html>

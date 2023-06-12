@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <main>
+        <div class='table-header'>
+            <h2>Create User</h2>
+            <a href='/views/index.html'>Back to Table</a>
+        </div>
+        <form method='post'>           
+            <h2>Register Form</h2>
+            <p>Kindly fill your details below.</p>
+          <input type="text"  placeholder="First Name" name="firstname" title="firstname" />
+          <input type="text" placeholder="Last Name" name="lastname" title="lastname" />
+          <input type="email" placeholder="E-Mail" name="email" title="email" />
+          <input type="text" placeholder="Profession" name="profession" title="profession"/>
+          <button type="submit">Create</button>
+        </form>
+    </main>
+    <script type="module">
+        import {create } from '../api/formHandler.js'
+        const form = document.querySelector('form')
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); create(form)    
+        })
+    </script>
+</body>
+</html>
